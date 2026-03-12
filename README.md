@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="logo.png" alt="postcli" width="80" />
+
 # postcli
 
 **Publishing tools for humans and AI agents.**
