@@ -29,6 +29,7 @@ No browser. No copy-paste. No context switching. Just `postcli-substack notes pu
 
 | Package | Platform | Status | Install |
 |---------|----------|--------|---------|
+| [`@postcli/cli`](https://github.com/postcli/cli) | Orchestrator | ![alpha](https://img.shields.io/badge/status-alpha-yellow) | `npm i -g @postcli/substack` (auto-installed) |
 | [`@postcli/substack`](https://github.com/postcli/substack) | Substack | ![alpha](https://img.shields.io/badge/status-alpha-yellow) | `npm i -g @postcli/substack` |
 | `@postcli/medium` | Medium | ![planned](https://img.shields.io/badge/status-planned-lightgrey) | - |
 | `@postcli/linkedin` | LinkedIn | ![planned](https://img.shields.io/badge/status-planned-lightgrey) | - |
@@ -41,13 +42,16 @@ No browser. No copy-paste. No context switching. Just `postcli-substack notes pu
 ### For humans
 
 ```bash
+# Install (auto-installs @postcli/cli)
+npm i -g @postcli/substack
+
 # Authenticate once
-postcli-substack auth login
+postcli substack auth login
 
 # Manage your content
-postcli-substack posts list
-postcli-substack notes publish "Shipping a new feature today"
-postcli-substack profile me
+postcli substack posts list
+postcli substack notes publish "Shipping a new feature today"
+postcli substack profile me
 ```
 
 ### For AI agents
@@ -58,8 +62,8 @@ Each package ships an MCP server that any compatible AI agent can use as a skill
 {
   "mcpServers": {
     "substack": {
-      "command": "npx",
-      "args": ["@postcli/substack", "--mcp"]
+      "command": "postcli",
+      "args": ["--mcp", "substack"]
     }
   }
 }
@@ -94,15 +98,21 @@ The AI can then read your drafts, publish notes, check engagement, and manage yo
 
 ## Roadmap
 
+### Done
 - [x] **@postcli/substack** - Read posts, publish notes, manage profile, comments, likes
+- [x] **@postcli/cli** - Unified CLI orchestrator with plugin discovery
 - [x] Chrome cookie auto-grab for seamless auth
 - [x] MCP Server with 12 tools for AI integration
+
+### Platforms
 - [ ] **@postcli/medium** - Posts, drafts, publications
 - [ ] **@postcli/linkedin** - Articles, posts, engagement
 - [ ] **@postcli/devto** - Articles, comments, tags
 - [ ] **@postcli/ghost** - Posts, pages, members (self-hosted)
 - [ ] **@postcli/hashnode** - Articles, series, newsletters
-- [ ] `postcli` unified CLI - single command for all platforms
+
+### Features
+- [ ] **TUI mode** - Interactive terminal UI powered by AI. Analyze posts, view stats and engagement metrics, get AI-powered content suggestions, manage publications visually without leaving the terminal
 - [ ] Cross-posting - publish once, distribute everywhere
 - [ ] Content scheduling
 - [ ] Analytics aggregation across platforms
